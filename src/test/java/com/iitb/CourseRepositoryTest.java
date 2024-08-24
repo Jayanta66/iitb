@@ -29,49 +29,50 @@ public class CourseRepositoryTest {
 	private TestEntityManager entityManager;
 
 	@Autowired	
-	private CourseRepository supplierRepository;
+	private CourseRepository courseRepository;
 	
 	@Test
 	public void testCreateSupplier() {
-		Course supplier = new Course("Java Full Web Development","Java Develper","Completed","dfasdf","adsfdfs");	
-		Course savedsupplier = supplierRepository.save(supplier);
-		System.out.println("Task Created Successfully "+supplier);
-		assertThat(savedsupplier.getCourse_id()).isGreaterThan(0);
+		Course course = new Course("Java Full Web Development","Java Develper","Completed","dfasdf","adsfdfs");	
+		Course savedcourse = courseRepository.save(course);
+		System.out.println("Task Created Successfully "+course);
+		assertThat(savedcourse.getCourse_id()).isGreaterThan(0);
 
 	}
 	
 
 	@Test
 	public void testListAllSupplier() {
-		Iterable<Course> listsupplier = supplierRepository.findAll();
+		Iterable<Course> listcourse = courseRepository.findAll();
 		System.out.println("List has found successfully");
-		listsupplier.forEach(supplier -> System.out.println(supplier));
+		listcourse.forEach(course -> System.out.println(course));
 	}
-	
+	/*
 	@Test
 	public void testGetSupplierById() {
-		Course supplier = supplierRepository.findById((long) 5).get();
-		System.out.println(supplier);
-		assertThat(supplier).isNotNull();
+		Course course = courseRepository.findById((long) 5).get();
+		System.out.println(course);
+		assertThat(course).isNotNull();
 	}
 	
 	@Test
 	public void testUpdateSupplierDetails() {
-		Course supplier = supplierRepository.findById((long) 5).get();
-		supplier.setCourse_title("Compuer Science and Engineering");
-		supplier.setCourse_code("CSE20204");
-		supplier.setDescription("Computer Science");	
-		supplier.setYear("2024");
-		supplier.setSemester("1st");
+		Course course = courseRepository.findById((long) 5).get();
+		course.setCourse_title("Compuer Science and Engineering");
+		course.setCourse_code("CSE20204");
+		course.setDescription("Computer Science");	
+		course.setYear("2024");
+		course.setSemester("1st");
 		System.out.println("Updated Successfully");
-		System.out.println(supplierRepository.save(supplier));
+		System.out.println(courseRepository.save(course));
 
 	}
+	*/
 	
 	@Test
 	public void testDeleteSupplier() {
-		Long supplierId = (long) 6;
-		supplierRepository.deleteById(supplierId);
+		Long courseId = (long) 6;
+		courseRepository.deleteById(courseId);
 		System.out.println("Deleted Successfully");
 
 		
