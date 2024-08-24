@@ -1,8 +1,8 @@
 package com.iitb.exception;
 /* Created by Arjun Gautam */
 
-public class TaskNotFoundExceptionNow extends RuntimeException{
-    public TaskNotFoundExceptionNow(String string){
+public class CourseNotFoundExceptionNow extends RuntimeException{
+    public CourseNotFoundExceptionNow(String string){
         super("Could not found the Task with id "+ string);
     }
 }

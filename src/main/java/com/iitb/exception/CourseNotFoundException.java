@@ -1,10 +1,10 @@
 package com.iitb.exception;
 
-public class TaskNotFoundException extends Exception {
+public class CourseNotFoundException extends Exception {
 
 	String msg;
 
-	public TaskNotFoundException(String noCustomers) {
+	public CourseNotFoundException(String noCustomers) {
 		super("Could not found the Task with id ");
 		this.msg = noCustomers;
 	}

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	
-	@ExceptionHandler(value=TaskNotFoundException.class)
-	public ResponseEntity<?> handler(TaskNotFoundException e){
+	@ExceptionHandler(value=CourseNotFoundException.class)
+	public ResponseEntity<?> handler(CourseNotFoundException e){
 		return new ResponseEntity<>("Supplier not found with given id , Please Check"
 				,HttpStatus.NOT_FOUND);
 		

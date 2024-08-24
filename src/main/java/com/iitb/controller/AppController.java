@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.iitb.beans.Course;
 import com.iitb.exception.NoDataException;
-import com.iitb.exception.TaskNotFoundException;
-import com.iitb.service.SupplierService;
+import com.iitb.exception.CourseNotFoundException;
+import com.iitb.service.CourseService;
 
 
 @RestController
 @CrossOrigin("http://localhost:3000")
 public class AppController {
 	@Autowired
-	private SupplierService service;
+	private CourseService service;
 
 	@GetMapping("/")
 	public String home() {
@@ -47,13 +47,13 @@ public class AppController {
 	}
 
 	@GetMapping("/api/courses/{course_id}")
-	public ResponseEntity<?> getCustomerById(@PathVariable("course_id") long course_id) throws TaskNotFoundException {
+	public ResponseEntity<?> getCustomerById(@PathVariable("course_id") long course_id) throws CourseNotFoundException {
 		String noCourse = "No Course Details has found";
 		Course Course = service.get(course_id);
 		if (Course != null) {
 			return new ResponseEntity<>(Course, HttpStatus.OK);
 		}
-		throw new TaskNotFoundException(noCourse);
+		throw new CourseNotFoundException(noCourse);
 	}
 
 	@PutMapping("/api/courses/{course_id}")
@@ -71,12 +71,12 @@ public class AppController {
 	}
 
 	@DeleteMapping("/api/courses/{course_id}")
-	public ResponseEntity<?> deleteAllCustomers(@PathVariable Long course_id) throws TaskNotFoundException {
+	public ResponseEntity<?> deleteAllCustomers(@PathVariable Long course_id) throws CourseNotFoundException {
 		boolean deleted = service.delete(course_id);
 		if (deleted) {
 			return new ResponseEntity<>("Successfully Deleted", HttpStatus.OK);
 		}
-		else throw new TaskNotFoundException("No Customers Details found");
+		else throw new CourseNotFoundException("No Customers Details found");
 
 	}
 

@@ -14,7 +14,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
 
 import com.iitb.beans.Course;
-import com.iitb.repository.SupplierRepository;
+import com.iitb.repository.CourseRepository;
 
 
 
@@ -23,13 +23,13 @@ import com.iitb.repository.SupplierRepository;
 @DataJpaTest(showSql = false)
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
-public class SupplierRepositoryTest {
+public class CourseRepositoryTest {
 	
 	@Autowired
 	private TestEntityManager entityManager;
 
 	@Autowired	
-	private SupplierRepository supplierRepository;
+	private CourseRepository supplierRepository;
 	
 	@Test
 	public void testCreateSupplier() {

@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iitb.beans.Course;
-import com.iitb.repository.SupplierRepository;
+import com.iitb.repository.CourseRepository;
 
 @Service
-public class SupplierService {
+public class CourseService {
 	@Autowired
-	private SupplierRepository repo;
+	private CourseRepository repo;
 	
 	public List<Course> listAll() {
 				return repo.findAll();
